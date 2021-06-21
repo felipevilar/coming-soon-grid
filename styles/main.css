@@ -21,16 +21,9 @@ body {
 }
 
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .topbar {
@@ -52,7 +45,7 @@ main {
 
 .photo {
   height: 250px;
-  background-image: url(/images/hero-mobile.jpg);
+  background-image: url(.././images/hero-mobile.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -61,7 +54,7 @@ main {
   display: none;
 }
 
-.content__wrapper {
+.content {
   max-width: 570px;
   margin: 0 auto;
 }
@@ -208,18 +201,27 @@ main {
     height: 100vh;
   }
   main {
-    width: 68%;
-    background: url(/images/bg-pattern-desktop.svg);
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 3rem;
+    background: url(.././images/bg-pattern-desktop.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
+  main .topbar {
+    margin: 0;
+    margin-bottom: 7rem;
+  }
   .content {
     text-align: left;
+    padding: 0;
     padding-right: 100px;
   }
   .content__wrapper {
-    padding-top: 2rem;
-    padding-left: 2rem;
+    margin: 0 auto;
+    padding: 0 3rem;
   }
   .content__subscribe .error-icon {
     right: 6rem;
@@ -241,8 +243,14 @@ main {
   .photo {
     display: none;
   }
-  .photo-desktop {
-    display: block;
+}
+
+@media only screen and (min-width: 1000px) {
+  main {
+    width: 70%;
+  }
+  .content__wrapper {
+    padding: 0 8rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

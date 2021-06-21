@@ -29,9 +29,7 @@ body {
 }
 
 main {
-  display: flex;
   flex-grow: 1;
-  flex-direction: column;
 }
 .topbar {
   display: flex;
@@ -54,10 +52,11 @@ main {
 .photo-desktop {
   display: none;
 }
-.content__wrapper {
+.content {
   max-width: 570px;
   margin: 0 auto;
 }
+
 .content {
   display: flex;
   flex-direction: column;
@@ -153,18 +152,27 @@ main {
   }
 
   main {
-    width: 68%;
+    width: 50%;
+    display: flex;
+    margin-top: 3rem;
     background: url(.././images/bg-pattern-desktop.svg);
     background-repeat: no-repeat;
     background-size: cover;
+
+    .topbar {
+      margin: 0;
+      margin-bottom: 7rem;
+    }
   }
+
   .content {
     text-align: left;
+    padding: 0;
     padding-right: 100px;
 
     &__wrapper {
-      padding-top: 2rem;
-      padding-left: 2rem;
+      margin: 0 auto;
+      padding: 0 3rem;
     }
     &__subscribe {
       .error-icon {
@@ -191,7 +199,15 @@ main {
     display: none;
   }
 
-  .photo-desktop {
-    display: block;
+}
+
+@media only screen and (min-width: 1000px) {
+  main {
+    width: 70%;
+  }
+  .content {
+    &__wrapper {
+      padding: 0 8rem;
+    }
   }
 }
