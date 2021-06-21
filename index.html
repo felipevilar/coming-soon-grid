@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <main>
+      <div class="content__wrapper">
+        <div class="topbar">
+          <img src="/images/logo.svg" alt="" />
+        </div>
+        <div class="photo"></div>
+        <div class="content">
+          <div class="content__header">
+            <h1>WE'RE</h1>
+            <h1>COMING</h1>
+            <h1>SOON</h1>
+          </div>
+          <div class="content__text">
+            <p>
+              Hello fellow shoppers! We're currently building our new fashion
+              store. Add your email below to stay up-to-date with announcements
+              and our launch deals
+            </p>
+          </div>
+          <div class="content__subscribe">
+            <form class="subscribe-form" novalidate>
+              <input
+                type="email"
+                name="mail"
+                id="mail"
+                placeholder="Email Address"
+              />
+              <div class="error-icon">
+                <img src="/images/icon-error.svg" alt="error" />
+              </div>
+              <button type="submit">
+                <img src="/images/icon-arrow.svg" alt="send" />
+              </button>
+            </form>
+            <span class="error" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="photo-desktop">
+      <img src="/images/hero-desktop.jpg" alt="" />
+    </div>
+  </body>
+</html>
+
+<script>
+  let form = document.getElementsByTagName("form")[0];
+  let email = document.getElementById("mail");
+  let error = document.querySelector(".error");
+  let errorIcon = document.querySelector(".error-icon");
+
+  email.addEventListener(
+    "input",
+    function (event) {
+      if (email.validity.valid) {
+        errorIcon.style.opacity = 0;
+        error.innerHTML = "";
+        error.className = "error";
+      }
+    },
+    false
+  );
+  form.addEventListener(
+    "submit",
+    function (event) {
+      if (!email.validity.valid) {
+        errorIcon.style.opacity = 100;
+        error.innerHTML = "Please provide a valid email";
+        event.preventDefault();
+      }
+    },
+    false
+  );
+</script>
