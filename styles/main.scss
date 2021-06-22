@@ -10,7 +10,13 @@ $orange-from: hsl(0, 80%, 86%);
 $orange-to: hsl(0, 74%, 74%);
 $orange-gradient: linear-gradient(135deg, $orange-from, $orange-to);
 
+$border-button: #d0d0d0;
+
 $font-size: 16px;
+$font-family: "Josefin Sans", serif;
+
+$background-desktop: url(.././images/bg-pattern-desktop.svg);
+$hero-desktop: url(.././images/hero-desktop.jpg);
 
 * {
   box-sizing: border-box;
@@ -19,7 +25,7 @@ $font-size: 16px;
 }
 
 body {
-  font-family: "Josefin Sans", serif;
+  font-family: $font-family;
   font-size: $font-size;
   height: 100vh;
   background: $light-gradient;
@@ -33,7 +39,7 @@ body {
     "l i"
     "t i";
   height: 100%;
-  background: url(.././images/bg-pattern-desktop.svg);
+  background: $background-desktop;
   background-size: 58% 100%;
 }
 
@@ -47,7 +53,7 @@ body {
 }
 
 .image {
-  background: url(.././images/hero-desktop.jpg);
+  background: $hero-desktop;
   background-size: cover;
   grid-area: i;
 }
@@ -111,7 +117,7 @@ body {
       width: 85%;
       height: 50px;
       background: transparent;
-      border: 1px solid #d0d0d0;
+      border: 1px solid $border-button;
       color: $desaturated-red;
       border-radius: 30px;
       padding: 1.5rem 2rem;
@@ -183,6 +189,7 @@ body {
     padding: 0 1rem;
   }
   .content {
+    margin-bottom: 2rem;
     &__text {
       padding-right: 0;
     }
