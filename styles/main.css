@@ -8,55 +8,55 @@
 body {
   font-family: "Josefin Sans", serif;
   font-size: 16px;
-  min-height: 100vh;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  height: 100vh;
   background: linear-gradient(135deg, white, #fff5f5);
 }
 
-main {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 58% 42%;
+      grid-template-columns: 58% 42%;
+  -ms-grid-rows: 150px 1fr;
+      grid-template-rows: 150px 1fr;
+      grid-template-areas: "l i" "t i";
+  height: 100%;
+  background: url(.././images/bg-pattern-desktop.svg);
+  background-size: 58% 100%;
 }
 
-.topbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 2rem auto 2rem 2rem;
+.logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: l;
 }
 
-.topbar img {
-  width: 30%;
-}
-
-.photo {
-  height: 250px;
-  background-image: url(.././images/hero-mobile.jpg);
-  background-repeat: no-repeat;
+.text {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: t;
   background-size: cover;
 }
 
-.photo-desktop {
-  display: none;
+.image {
+  background: url(.././images/hero-desktop.jpg);
+  background-size: cover;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: i;
 }
 
-.content {
-  max-width: 570px;
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  height: 100%;
   margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .content {
@@ -67,19 +67,14 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  text-align: center;
-  line-height: 2.6rem;
-  padding: 2rem;
-  padding-top: 4rem;
+  margin-bottom: 5rem;
 }
 
 .content__header h1 {
-  font-size: 2.5rem;
+  font-size: 4rem;
+  line-height: 4rem;
   color: #413a3a;
-  letter-spacing: 0.7rem;
+  letter-spacing: 1rem;
   font-weight: 600;
 }
 
@@ -90,10 +85,12 @@ main {
 
 .content__text {
   color: #ce9797;
+  opacity: 0.8;
   line-height: 1.5rem;
   font-weight: 400;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
+  padding-right: 2rem;
 }
 
 .content__subscribe {
@@ -132,13 +129,13 @@ main {
 }
 
 .content__subscribe input[type="email"] {
-  width: 100%;
-  height: 45px;
+  width: 85%;
+  height: 50px;
   background: transparent;
   border: 1px solid #d0d0d0;
-  color: #d0d0d0;
+  color: #ce9797;
   border-radius: 30px;
-  padding: 0 1.5rem;
+  padding: 1.5rem 2rem;
   outline: none;
 }
 
@@ -148,22 +145,26 @@ main {
 }
 
 .content__subscribe input[type="email"]::-webkit-input-placeholder {
-  color: #b3b3b3;
+  font-size: 1rem;
+  color: #ce9797;
   font-family: "Josefin Sans", serif;
 }
 
 .content__subscribe input[type="email"]:-ms-input-placeholder {
-  color: #b3b3b3;
+  font-size: 1rem;
+  color: #ce9797;
   font-family: "Josefin Sans", serif;
 }
 
 .content__subscribe input[type="email"]::-ms-input-placeholder {
-  color: #b3b3b3;
+  font-size: 1rem;
+  color: #ce9797;
   font-family: "Josefin Sans", serif;
 }
 
 .content__subscribe input[type="email"]::placeholder {
-  color: #b3b3b3;
+  font-size: 1rem;
+  color: #ce9797;
   font-family: "Josefin Sans", serif;
 }
 
@@ -179,10 +180,10 @@ main {
       -ms-flex-align: center;
           align-items: center;
   background: linear-gradient(135deg, #f8bfbf, #ee8c8c);
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2.5rem;
   border-radius: 30px;
   border: 0;
-  right: 0;
+  right: 50px;
   -webkit-box-shadow: 0px 0px 18px #d0d0d0;
           box-shadow: 0px 0px 18px #d0d0d0;
 }
@@ -190,67 +191,56 @@ main {
 .content__subscribe .error {
   font-size: 0.8rem;
   color: #f96262;
+  margin: 1rem 0;
 }
 
-@media only screen and (min-width: 768px) {
-  body {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    height: 100vh;
+@media (max-width: 900px) {
+  .wrapper {
+    width: 90%;
   }
-  main {
-    width: 50%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-top: 3rem;
-    background: url(.././images/bg-pattern-desktop.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  main .topbar {
-    margin: 0;
-    margin-bottom: 7rem;
-  }
-  .content {
-    text-align: left;
-    padding: 0;
-    padding-right: 100px;
-  }
-  .content__wrapper {
-    margin: 0 auto;
-    padding: 0 3rem;
-  }
-  .content__subscribe .error-icon {
-    right: 6rem;
-  }
-  .content h1 {
+  .content__header h1 {
     font-size: 3rem;
-    line-height: 3.2rem;
+    line-height: 3rem;
+    color: #413a3a;
+    letter-spacing: 0.5rem;
   }
-  .content button {
-    padding: 0.8rem 2.2rem;
-  }
-  .photo-desktop {
-    display: block;
-  }
-  .photo-desktop img {
-    width: 100%;
+}
+
+@media (max-width: 570px) {
+  body {
     height: 100%;
   }
-  .photo {
-    display: none;
+  .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 80px 250px 1fr;
+        grid-template-rows: 80px 250px 1fr;
+        grid-template-areas: "l" "i" "t";
+    z-index: 1;
+    background: linear-gradient(135deg, white, #fff5f5);
+    text-align: center;
   }
-}
-
-@media only screen and (min-width: 1000px) {
-  main {
-    width: 70%;
+  .wrapper {
+    padding: 0 1rem;
   }
-  .content__wrapper {
-    padding: 0 8rem;
+  .content__text {
+    padding-right: 0;
+  }
+  .content__subscribe .subscribe-form input[type="email"] {
+    width: 100%;
+  }
+  .content__subscribe .subscribe-form button {
+    right: 0px;
+  }
+  .brand {
+    width: 100px;
+  }
+  .image {
+    background: url(.././images/hero-mobile.jpg);
+    background-size: 100% 100%;
+  }
+  .text {
+    margin-top: 4rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
